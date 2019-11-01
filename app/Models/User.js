@@ -7,6 +7,14 @@ const Hash = use('Hash')
 const Model = use('Model')
 
 class User extends Model {
+  static get table () {
+    return 'users_users'
+  }
+
+  static get visible() {
+    return ['id', 'name']
+  }
+
   static boot () {
     super.boot()
 
@@ -35,9 +43,9 @@ class User extends Model {
     return this.hasMany('App/Models/Token')
   }
 
-    peaks() {
-        
-    }
+  peaks () {
+    return this.hasMany('App/Models/Peak')
+  }
 }
 
 module.exports = User
